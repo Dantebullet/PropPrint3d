@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("./Imagenes/fondo.jpg");
+            background-image: url("C:/Users/OMEN/Desktop/Pagina web/Imagenes/fondo.jpg");
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -139,25 +139,238 @@
         }
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .search-bar input {
-                width: 90%;
-                padding: 8px;
-            }
-            .catalog {
-                padding: 10px;
-            }
-            .category {
-                font-size: 1.5em;
-                margin-top: 15px;
-            }
+            header {
+            background-color: #3432b5;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .catalog {
+            padding: 30px;
+        }
+        .category {
+            width: 100%;
+            font-size: 2em;
+            margin-top: 20px;
+            color: #000000;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
             .product {
-                width: 160px;
-                height: 320px;
-                padding: 8px;
-            }
-            .carousel-prev, .carousel-next {
-                padding: 8px;
-            }
+            border: 10px solid #eedcdc;
+            border-radius: 25px;
+            padding: 2px;
+            width: 115px;
+            height: 270px;
+            text-align: center;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+        }
+        .product img {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 10 auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 25px;
+        }
+        .product h3 {
+            margin: 0px 0;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        .product p {
+            margin: 0px 0;
+            font-size: 1em;
+            color: #333;
+        }
+        .product button {
+            margin: 0px 0;
+            padding: -10px 20px;
+            background-color: #3432b5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;font-size: 1em;
+        }
+        .carousel-prev, .carousel-next {
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px;
+        }
+        
+        @media (max-width: 425px) {
+
+            header {
+            background-color: #3432b5;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .catalog {
+            padding: 30px;
+        }
+        .category {
+            width: 100%;
+            font-size: 2em;
+            margin-top: 20px;
+            color: #000000;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+            .product {
+            border: 10px solid #eedcdc;
+            border-radius: 25px;
+            padding: 5px;
+            width: 90px;
+            height: 270px;
+            text-align: center;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+        }
+        .product img {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 10 auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 25px;
+        }
+        .product h3 {
+            margin: 0px 0;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        .product p {
+            margin: 0px 0;
+            font-size: 1em;
+            color: #333;
+        }
+        .product button {
+            margin: 0px 0;
+            padding: 0px 20px;
+            background-color: #3432b5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;font-size: 1em;
+        }
+        .carousel-prev, .carousel-next {
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px;
+        }
+        @media (max-width: 375px) {
+
+        header {
+            background-color: #3432b5;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .catalog {
+            padding: 30px;
+        }
+        .category {
+            width: 100%;
+            font-size: 2em;
+            margin-top: 20px;
+            color: #000000;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+            .product {
+            border: 10px solid #eedcdc;
+            border-radius: 25px;
+            padding: 5px;
+            width: 160px;
+            height: 300px;
+            text-align: center;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+        }
+        .product img {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 10 auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 25px;
+        }
+        .product h3 {
+            margin: 0px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .product p {
+            margin: 0px 0;
+            font-size: 1em;
+            color: #333;
+        }
+        .product button {
+            margin: 0px 0;
+            padding: 10px 20px;
+            background-color: #3432b5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .carousel-prev, .carousel-next {
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px;
         }
     </style>
 </head>
@@ -209,61 +422,61 @@
             <button id="scroll-left-decoracion" class="carousel-prev">⬅</button>
             <div class="carousel" id="decoracion">
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/1.1.jpg" alt="Litofania">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/1.1.jpg" alt="Litofania">
                     <h3>Litofania</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Litofania', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/Arbol de Navidad.jpg" alt="Arbol de Navidad">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Arbol de Navidad.jpg" alt="Arbol de Navidad">
                     <h3>Arbol de Navidad</h3>
                     <p>$150</p>
                     <button onclick="addToCart('Arbol de Navidad', 150)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/Maceta Low Poly.jpg" alt="Maceta Low Poly">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Maceta Low Poly.jpg" alt="Maceta Low Poly">
                     <h3>Maceta Low Poly</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Maceta Low Poly', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/Lampara Luna.jpg" alt="Lampara Luna">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Luna.jpg" alt="Lampara Luna">
                     <h3>Lampara Luna</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Lampara Luna', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/Lampara Valeria.jpg" alt="Lampara Valeria">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Valeria.jpg" alt="Lampara Valeria">
                     <h3>Lampara Valeria</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Lampara Valeria', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/Lampara Tulipan.jpeg" alt="Lampara Tulipan">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Tulipan.jpeg" alt="Lampara Tulipan">
                     <h3>Lampara Tulipan</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Lampara Tulipan', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Florero Trensado.jpg" alt="Florero Trensado">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Florero Trensado.jpg" alt="Florero Trensado">
                     <h3>Florero Trensado</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Florero Trensado', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Vaso Voroni Espiral.png" alt="Vaso Voroni Espiral">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Vaso Voroni Espiral.png" alt="Vaso Voroni Espiral">
                     <h3>Vaso Voroni Espiral</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Vaso Voroni Espiral', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Linterna Minecraft.jpg" alt="Linterna Minecraft">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Linterna Minecraft.jpg" alt="Linterna Minecraft">
                     <h3>Linterna Minecraft</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Linterna Minecraft', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Jarron Personalizado.png" alt="Jarron Personalizado">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Jarron Personalizado.png" alt="Jarron Personalizado">
                     <h3>Jarron Personalizado</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Jarron Personalizado', 300)">Añadir al pedido</button>
@@ -279,73 +492,73 @@
             <button id="scroll-left-Llaveros" class="carousel-prev">⬅</button>
             <div class="carousel" id="Llaveros">
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Coroazon Geometrico.webp" alt="Coroazon Geometrico">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Coroazon Geometrico.webp" alt="Coroazon Geometrico">
                     <h3>Coroazon Geometrico</h3>
                     <p>$45</p>
                     <button onclick="addToCart('Coroazon Geometrico', 45)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Camara Polaroid.jpg" alt="Camara Polaroid">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Camara Polaroid.jpg" alt="Camara Polaroid">
                     <h3>Camara Polaroid</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Camara Polaroid', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llavero Gers of War.jpg" alt="Llavero Gers of War">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Gers of War.jpg" alt="Llavero Gers of War">
                     <h3>Llavero Gers of War</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Llavero Gers of War', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Zoro One Piece.jpg" alt="Zoro One Piece">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Zoro One Piece.jpg" alt="Zoro One Piece">
                     <h3>Zoro One Piece</h3>
                     <p>$60</p>
                     <button onclick="addToCart('Zoro One Piece', 60)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llavero Pizza.png" alt="Llavero Pizza">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Pizza.png" alt="Llavero Pizza">
                     <h3>LLlavero Pizza</h3>
                     <p>$70</p>
                     <button onclick="addToCart('Llavero Pizza', 70)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llavero Pacman.jpg" alt="Llavero Pacman">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Pacman.jpg" alt="Llavero Pacman">
                     <h3>Llavero Pacman</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Llavero Pacman', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Cabeza de Dead Pool.png" alt="Cabeza de Dead Pool">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Cabeza de Dead Pool.png" alt="Cabeza de Dead Pool">
                     <h3>Cabeza de Dead Pool</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Cabeza de Dead Pool', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llaveros Sharingan.jpg" alt="Llaveros Sharingan">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Sharingan.jpg" alt="Llaveros Sharingan">
                     <h3>Llaveros Sharingan</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Llaveros Sharingan', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Hongos de Mario Bros.jpg" alt="Hongos de Mario Bros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Hongos de Mario Bros.jpg" alt="Hongos de Mario Bros">
                     <h3>Hongos de Mario Bros</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Hongos de Mario Bros', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
                     <h3>Llaveros Deformitos</h3>
                     <p>$35</p>
                     <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
                     <h3>Llaveros Deformitos</h3>
                     <p>$35</p>
                     <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
                     <h3>Llaveros Deformitos</h3>
                     <p>$35</p>
                     <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
