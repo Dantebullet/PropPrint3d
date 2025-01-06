@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url("./Imagenes/fondo.jpg");
+            background-image: url("C:/Users/OMEN/Desktop/Pagina web/Imagenes/fondo.jpg");
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
@@ -32,14 +32,16 @@
             border-radius: 5px;
         }
         .catalog {
-            padding: 20px;
+            padding: 30px;
         }
         .category {
             width: 100%;
-            font-size: 1.5em;
+            font-size: 3em;
             margin-top: 20px;
-            color: #333;
-            text-align: left;
+            color: #000000;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
         }
         .carousel-container {
             display: flex;
@@ -57,23 +59,52 @@
             display: none;
         }
         .product {
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 10px solid #eedcdc;
+            border-radius: 25px;
             padding: 10px;
-            min-width: 150px;
+            width: 250px;
+            height: 350px;
             text-align: center;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
         }
         .product img {
             max-width: 100%;
-            border-radius: 5px;
+            max-height: 170px;
+            margin: 10 auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 25px;
+        }
+        .product h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .product p {
+            margin: 10px 0;
+            font-size: 1em;
+            color: #333;
+        }
+        .product button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #3432b5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
         }
         .carousel-prev, .carousel-next {
             cursor: pointer;
             background-color: #333;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 5px;
         }
         /* Modal Styles */
         .modal {
@@ -105,6 +136,28 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .search-bar input {
+                width: 90%;
+                padding: 8px;
+            }
+            .catalog {
+                padding: 10px;
+            }
+            .category {
+                font-size: 1.5em;
+                margin-top: 15px;
+            }
+            .product {
+                width: 160px;
+                height: 320px;
+                padding: 8px;
+            }
+            .carousel-prev, .carousel-next {
+                padding: 8px;
+            }
         }
     </style>
 </head>
@@ -156,61 +209,61 @@
             <button id="scroll-left-decoracion" class="carousel-prev">⬅</button>
             <div class="carousel" id="decoracion">
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/1.1.jpg" width="150" height="200" alt="Lampara de Litofania">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/1.1.jpg" alt="Lampara de Litofania">
                     <h3>Lampara de Litofania</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Lampara de Litofania', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Arbol de Navidad.jpg" width="200" height="200" alt="Arbol de Navidad">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Arbol de Navidad.jpg" alt="Arbol de Navidad">
                     <h3>Arbol de Navidad</h3>
                     <p>$150</p>
                     <button onclick="addToCart('Arbol de Navidad', 150)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/Maceta Low Poly.jpg" width="200" height="200" alt="Maceta Low Poly">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Maceta Low Poly.jpg" alt="Maceta Low Poly">
                     <h3>Maceta Low Poly</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Maceta Low Poly', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="./Imagenes/Lampara Luna.jpg" width="200" height="200" alt="Lampara Luna">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Luna.jpg" alt="Lampara Luna">
                     <h3>Lampara Luna</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Lampara Luna', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Valeria.jpg" width="200" height="200" alt="Lampara Valeria">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Valeria.jpg" alt="Lampara Valeria">
                     <h3>Lampara Valeria</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Lampara Valeria', 250)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Tulipan.jpeg" width="200" height="200" alt="Lampara Tulipan">
+                    <img src="C:/Users/OMEN/Desktop/Pagina web/Imagenes/Lampara Tulipan.jpeg" alt="Lampara Tulipan">
                     <h3>Lampara Tulipan</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Lampara Tulipan', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Florero Trensado.jpg" width="200" height="200" alt="Florero Trensado">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Florero Trensado.jpg" alt="Florero Trensado">
                     <h3>Florero Trensado</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Florero Trensado', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Vaso Voroni Espiral.png" width="200" height="200" alt="Vaso Voroni Espiral">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Vaso Voroni Espiral.png" alt="Vaso Voroni Espiral">
                     <h3>Vaso Voroni Espiral</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Vaso Voroni Espiral', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Linterna Minecraft.jpg" width="250" height="200" alt="Linterna Minecraft">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Linterna Minecraft.jpg" alt="Linterna Minecraft">
                     <h3>Linterna Minecraft</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Linterna Minecraft', 300)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Jarron Personalizado.png" width="200" height="200" alt="Jarron Personalizado">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Jarron Personalizado.png" alt="Jarron Personalizado">
                     <h3>Jarron Personalizado</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Jarron Personalizado', 300)">Añadir al pedido</button>
@@ -226,64 +279,76 @@
             <button id="scroll-left-Llaveros" class="carousel-prev">⬅</button>
             <div class="carousel" id="Llaveros">
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Coroazon Geometrico.webp" width="200" height="200" alt="Coroazon Geometrico">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Coroazon Geometrico.webp" alt="Coroazon Geometrico">
                     <h3>Coroazon Geometrico</h3>
                     <p>$45</p>
                     <button onclick="addToCart('Coroazon Geometrico', 45)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Camara Polaroid.jpg" width="200" height="200" alt="Camara Polaroid">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Camara Polaroid.jpg" alt="Camara Polaroid">
                     <h3>Camara Polaroid</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Camara Polaroid', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Gers of War.jpg" width="200" height="200" alt="Llavero Gers of War">
-                    <h3>LLlavero Gers of War</h3>
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Gers of War.jpg" alt="Llavero Gers of War">
+                    <h3>Llavero Gers of War</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Llavero Gers of War', 50)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Zoro One Piece.jpg" width="200" height="200" alt="Zoro One Piece">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Zoro One Piece.jpg" alt="Zoro One Piece">
                     <h3>Zoro One Piece</h3>
                     <p>$60</p>
                     <button onclick="addToCart('Zoro One Piece', 60)">Añadir al pedido</button>
                 </div>
                 <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Pizza.png" width="200" height="200" alt="Llavero Pizza">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Pizza.png" alt="Llavero Pizza">
                     <h3>LLlavero Pizza</h3>
                     <p>$70</p>
                     <button onclick="addToCart('Llavero Pizza', 70)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llavero 3D">
-                    <img src="llavero_3d.jpg" width="200" height="200" alt="Llavero 3D">
-                    <h3>Llavero 3D</h3>
+                <div class="product" data-category="Llaveros" data-name="Llaveros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llavero Pacman.jpg" alt="Llavero Pacman">
+                    <h3>Llavero Pacman</h3>
                     <p>$50</p>
-                    <button onclick="addToCart('Llavero 3D', 50)">Añadir al pedido</button>
+                    <button onclick="addToCart('Llavero Pacman', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llavero 3D">
-                    <img src="llavero_3d.jpg" width="200" height="200" alt="Llavero 3D">
-                    <h3>Llavero 3D</h3>
+                <div class="product" data-category="Llaveros" data-name="Llaveros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Cabeza de Dead Pool.png" alt="Cabeza de Dead Pool">
+                    <h3>Cabeza de Dead Pool</h3>
                     <p>$50</p>
-                    <button onclick="addToCart('Llavero 3D', 50)">Añadir al pedido</button>
+                    <button onclick="addToCart('Cabeza de Dead Pool', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llavero 3D">
-                    <img src="llavero_3d.jpg" width="200" height="200" alt="Llavero 3D">
-                    <h3>Llavero 3D</h3>
+                <div class="product" data-category="Llaveros" data-name="Llaveros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Sharingan.jpg" alt="Llaveros Sharingan">
+                    <h3>Llaveros Sharingan</h3>
                     <p>$50</p>
-                    <button onclick="addToCart('Llavero 3D', 50)">Añadir al pedido</button>
+                    <button onclick="addToCart('Llaveros Sharingan', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llavero 3D">
-                    <img src="llavero_3d.jpg" width="200" height="200" alt="Llavero 3D">
-                    <h3>Llavero 3D</h3>
+                <div class="product" data-category="Llaveros" data-name="Llaveros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Hongos de Mario Bros.jpg" alt="Hongos de Mario Bros">
+                    <h3>Hongos de Mario Bros</h3>
                     <p>$50</p>
-                    <button onclick="addToCart('Llavero 3D', 50)">Añadir al pedido</button>
+                    <button onclick="addToCart('Hongos de Mario Bros', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llavero 3D">
-                    <img src="llavero_3d.jpg" width="200" height="200" alt="Llavero 3D">
-                    <h3>Llavero 3D</h3>
-                    <p>$50</p>
-                    <button onclick="addToCart('Llavero 3D', 50)">Añadir al pedido</button>
+                <div class="product" data-category="Llaveros" data-name="Llaveros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
+                    <h3>Llaveros Deformitos</h3>
+                    <p>$35</p>
+                    <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
+                </div>
+                <div class="product" data-category="Llaveros" data-name="Llaveros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
+                    <h3>Llaveros Deformitos</h3>
+                    <p>$35</p>
+                    <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
+                </div>
+                <div class="product" data-category="Llaveros" data-name="Llaveros">
+                    <img src="C:\Users\OMEN\Desktop\Pagina web\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
+                    <h3>Llaveros Deformitos</h3>
+                    <p>$35</p>
+                    <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
                 </div>
                 <!-- Añade más productos si es necesario -->
             </div>
