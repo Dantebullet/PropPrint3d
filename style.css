@@ -291,3 +291,43 @@ button:hover {
     border: none;
     padding: 10px;
 }
+
+.product {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+    .product {
+        width: 140px;
+        height: 300px;
+        padding: 5px;
+    }
+    .product img {
+        margin-bottom: 10px;
+    }
+    .product h3 {
+        font-size: 1em;
+    }
+    .product p {
+        font-size: 0.9em;
+    }
+    .product button {
+        padding: 8px 16px;
+    }
+}
