@@ -84,4 +84,78 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// script.js
+
+let cart = [];
+
+// Añadir producto al carrito
+function addToCart(product, price) {
+    let item = cart.find(i => i.product === product);
+    if (item) {
+        item.quantity++;
+    } else {
+        cart.push({ product, price, quantity: 1 });
+    }
+    updateCart();
+}
+
+// Actualizar la tabla del carrito
+function updateCart() {
+    let cartItems = document.getElementById("cartItems");
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        let itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        cartItems.innerHTML += `
+            <tr>
+                <td>${item.product}</td>
+                <td>$${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>$${itemTotal}</td>
+                <td>
+                    <button onclick="removeFromCart(${index})">❌</button>
+                </td>
+            </tr>
+        `;
+    });
+
+    document.getElementById("totalPrice").innerText = total;
+}
+
+// Eliminar producto del carrito
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+// Abrir modal
+function openCartModal() {
+    document.getElementById("cartModal").style.display = "block";
+}
+
+// Cerrar modal
+function closeModal() {
+    document.getElementById("cartModal").style.display = "none";
+}
+
+// Enviar pedido a WhatsApp
+function proceedToWhatsApp() {
+    if (cart.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
+
+    let message = "Hola, quiero hacer este pedido:\n";
+    cart.forEach(item => {
+        message += `${item.quantity}x ${item.product} - $${item.price}\n`;
+    });
+    message += `\nTotal: $${document.getElementById("totalPrice").innerText}`;
+
+    let url = "https://wa.me/5213312345678?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+}
 // ...existing code...
