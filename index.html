@@ -13,7 +13,9 @@
     <!-- Animación de Cargando -->
     <div class="loader" id="loader"></div>
 
-    <div class="cart" onclick="openCartModal()">🛒</div>
+<div class="cart" onclick="openCartModal()">
+    <img src="./Imagenes/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
+</div>
 
     <!-- Modal del carrito -->
     <div id="cartModal" class="modal">
@@ -36,9 +38,7 @@
             <div class="cart-total">
                 <h3>Total: $<span id="totalPrice">0</span></h3>
             </div>
-            <div class="confirm-btn-container">
-                 <button onclick="proceedToWhatsApp()">Confirmar y enviar a WhatsApp</button>
-            </div>
+            <button onclick="proceedToWhatsApp()">Confirmar y enviar a WhatsApp</button>
         </div>
     </div>
 
