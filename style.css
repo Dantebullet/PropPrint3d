@@ -1,267 +1,343 @@
+/* Contenedor del botón de confirmación */
 .confirm-btn-container {
-    display: flex;
-    justify-content: center; /* centra horizontalmente */
-    margin-top: 20px;        /* espacio con lo de arriba */
+    display: flex;                       /* usa flexbox para organizar elementos internos */
+    justify-content: center;            /* centra horizontalmente */
+    margin-top: 20px;                   /* espacio superior respecto al elemento anterior */
 }
 
+/* Botón de confirmación */
 .confirm-btn-container button {
-    padding: 10px 20px;
-    background-color: #28a745; /* verde tipo WhatsApp */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px;                 /* espacio interno (vertical y horizontal) */
+    background-color: #28a745;          /* verde tipo WhatsApp */
+    color: rgb(255, 255, 255);                       /* texto blanco */
+    border: none;                       /* sin borde */
+    border-radius: 5px;                 /* esquinas redondeadas */
+    cursor: pointer;                    /* cursor tipo mano al pasar por encima */
 }
 
+/* Efecto hover del botón de confirmación */
 .confirm-btn-container button:hover {
-    background-color: #218838; /* verde más oscuro al pasar el mouse */
+    background-color: #218838;          /* verde más oscuro al pasar el mouse */
 }
 
-/* Estilos Generales */
+/* Estilos generales del body */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url("./Imagenes/Fondo2.png");
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    font-family: Arial, sans-serif;     /* fuente principal */
+    margin: 0;                          /* sin margen exterior */
+    padding: 0;                         /* sin relleno interno */
+    background-image: url("./Imagenes/Fondo2.png");  /* imagen de fondo */
+    background-size: cover;             /* cubre todo el fondo */
+    background-position: center center; /* centrado horizontal y vertical */
+    background-attachment: fixed;       /* fondo fijo al hacer scroll */
 }
 
+/* Encabezado principal */
 header {
-    background-color: #3432b5;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
+    background-color: #163C6B;          /* azul oscuro de fondo */
+    color: white;                       /* texto blanco */
+    padding: 20px 30px;                 /* espacio interno más amplio */
+    text-align: center;                 /* texto centrado */
+    border-radius: 15px;                /* esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* sombra suave */
+    border: 2px solid #1C4D8E;         /* borde azul más claro */
+    transition: all 0.3s ease;          /* transición suave */
 }
 
+/* Hover sobre encabezado */
+header:hover {
+    background-color: #1C4D8E;          /* azul más brillante al pasar el mouse */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* sombra más profunda */
+}
+
+/* Barra de búsqueda */
 .search-bar {
-    margin: 20px auto;
-    text-align: center;
+    margin: 40px auto;                  /* espacio vertical y centrado horizontal */
+    text-align: center;                 /* contenido centrado */
 }
 
 .search-bar input {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: 50%;                         /* ancho relativo al contenedor */
+    padding: 10px;                      /* espacio interno */
+    border: 5px solid #1C4D8E;            /* borde gris claro */
+    border-radius: 10px;                 /* esquinas redondeadas */
 }
 
 .catalog {
-    padding: 30px;
+    padding: 30px 30px 30px 30px; /* arriba 5px, derecha 30px, abajo 30px, izquierda 30px */
 }
 
+.category:first-of-type {
+    margin-top: 0;
+}
+
+/* Título de categoría */
 .category {
-    width: 100%;
+    display: block;          /* se comporta como bloque completo */
+    width: fit-content;      /* ancho del contenido */
+    margin: 40px auto;       /* centrado horizontal */
+    padding: 15px 30px;
+    background-color: #9b8fb5;
+    color: #163C6B;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     font-size: 3em;
-    margin-top: 20px;
-    color: #000000;
-    text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
+/* Hover sobre categoría */
+.category:hover {
+    background-color: #FFEC8B;          /* color más claro al pasar mouse */
+    transform: scale(1.05);             /* pequeño zoom */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* sombra más intensa */
+}
+
+/* Contenedor del carrusel */
 .carousel-container {
+    position: relative;   /* necesario para que las flechas se ubiquen correctamente */
     display: flex;
     align-items: center;
     overflow: hidden;
     max-width: 100%;
 }
 
+/* Carrusel de productos */
 .carousel {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    display: flex;                      /* elementos en fila */
+    gap: 20px;                          /* espacio entre productos */
+    overflow-x: auto;                   /* scroll horizontal */
+    scroll-behavior: smooth;            /* desplazamiento suave */
 }
 
+
+/* Oculta la barra de desplazamiento en navegadores WebKit */
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
+/* Tarjeta de producto */
 .product {
-    border: 10px solid #eedcdc;
-    border-radius: 25px;
-    padding: 10px;
-    width: 250px;
-    height: 400px;
-    text-align: center;
-    flex-shrink: 0;
-    display: flex;
+    border: 10px solid #eedcdc;         /* borde grueso color crema */
+    border-radius: 25px;                /* esquinas redondeadas */
+    padding: 10px;                      /* espacio interno */
+    width: 250px;                       /* ancho fijo */
+    height: 400px;                      /* alto fijo */
+    text-align: center;                 /* texto centrado */
+    flex-shrink: 0;                     /* evita que se reduzca en flexbox */
+    display: flex;                      /* estructura interna en columna */
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
+    justify-content: space-between;     /* espacio entre elementos internos */
+    align-items: center;                /* centrado horizontal */
+    background-color: rgb(255, 255, 255);            /* fondo blanco */
 }
 
+/* Imagen del producto */
 .product img {
-    max-width: 100%;
-    max-height: 200px;
-    margin: 10 auto;
-    display: block;
-    object-fit: contain;
-    border-radius: 25px;
+    max-width: 100%;                    /* ancho máximo relativo al contenedor */
+    max-height: 200px;                  /* alto máximo */
+    margin: 10 auto;                    /* margen vertical */
+    display: block;                     /* imagen como bloque */
+    object-fit: contain;                /* mantiene proporciones sin recortar */
+    border-radius: 20px;                /* esquinas redondeadas */
 }
 
+/* Título del producto */
 .product h3 {
-    margin: 0px 0;
-    font-size: 1.2em;
-    text-align: center;
+    margin: 0;                          /* sin margen */
+    font-size: 1.2em;                   /* tamaño de fuente */
+    text-align: center;                 /* centrado */
 }
 
+/* Descripción del producto */
 .product p {
-    margin: 0px 0;
-    font-size: 1em;
-    color: #333;
+    margin: 0;                          /* sin margen */
+    font-size: 1em;                     /* tamaño de fuente */
+    color: #333;                        /* gris oscuro */
 }
 
+/* Botón dentro de la tarjeta de producto */
 .product button {
-    margin: 0px 0;
-    padding: 10px 20px;
-    background-color: #3432b5;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1em;
+    margin: 0;                          /* sin margen */
+    padding: 10px 20px;                 /* espacio interno */
+    background-color: #3432b5;          /* azul oscuro */
+    color: white;                       /* texto blanco */
+    border: none;                       /* sin borde */
+    border-radius: 20px;                /* esquinas redondeadas */
+    cursor: pointer;                    /* cursor tipo mano */
+    font-size: 1em;                     /* tamaño de fuente */
 }
 
+/* Flechas del carrusel */
 .carousel-prev, .carousel-next {
+    position: absolute;          /* se ubican sobre el carrusel */
+    top: 50%;                    /* centrado vertical */
+    transform: translateY(-50%);
+    z-index: 10;
     cursor: pointer;
-    background-color: #333;
+    background-color: #2460B0;
     color: white;
     border: none;
-    padding: 5px;
+    padding: 10px;
     font-size: 2rem;
+    border-radius: 50%;          /* opcional: circulares */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
 }
 
-/* Modal Styles */
+/* Separación desde los bordes del contenedor */
+.carousel-prev {
+    left: 20px;    /* 20px desde el borde izquierdo */
+}
+
+.carousel-next {
+    right: 20px;   /* 20px desde el borde derecho */
+}
+
+/* Hover sobre flechas */
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: #1B4F8A;
+}
+
+
+/* Modal emergente */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
+    display: none;                      /* oculto por defecto */
+    position: fixed;                    /* posición fija */
+    z-index: 1;                         /* prioridad sobre otros elementos */
+    left: 0;                            /* alineado al borde izquierdo */
+    top: 0;                             /* alineado al borde superior */
+    width: 100%;                        /* ancho completo */
+    height: 100%;                       /* alto completo */
+    background-color: rgba(0, 0, 0, 0.4); /* fondo semi-transparente */
+    padding-top: 60px;                  /* espacio superior */
 }
 
+/* Contenido del modal */
 .modal-content {
     background-color: white;
     margin: 5% auto;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 10px;      /* 🔹 esquinas redondeadas */
     width: 80%;
     max-width: 400px;
+    max-height: 70vh;          /* altura máxima */
+    overflow-y: auto;           /* scroll si hay muchos productos */
+    
+    /* 🔹 Para que el scroll respete el borde redondeado */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
+/* Botón de cerrar modal */
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    color: #aaa;                        /* gris claro */
+    float: right;                       /* alineado a la derecha */
+    font-size: 30px;                    /* tamaño de fuente */
+    font-weight: bold;                  /* negrita */
 }
 
 .close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: black;                       /* texto negro al pasar o enfocar */
+    text-decoration: none;              /* sin subrayado */
+    cursor: pointer;                    /* cursor tipo mano */
 }
 
-/* Carrito */
+/* Icono del carrito */
 .cart {
-    position: fixed;
-    bottom: 20px;
-    right: 40px;
-    background-color: #00509e;
-    color: white;
-    padding: 0; /* Modificado para centrar */
-    border-radius: 50%;
-    font-size: 1.8em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1001;
-    width: 60px;      /* Tamaño del círculo */
-    height: 60px;     /* Tamaño del círculo */
-    display: flex;    /* Centra el contenido */
-    justify-content: center;
-    align-items: center;
+    position: fixed;                    /* posición fija */
+    bottom: 40px;                       /* 20px desde abajo */
+    right: 40px;                        /* 40px desde la derecha */
+    background-color: #00509e;          /* azul fuerte */
+    color: white;                       /* texto blanco */
+    padding: 0;                         /* sin padding */
+    border-radius: 50%;                 /* forma circular */
+    font-size: 1.8em;                   /* tamaño de fuente */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* sombra suave */
+    cursor: pointer;                    /* cursor tipo mano */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* transiciones suaves */
+    z-index: 1001;                      /* encima de otros elementos */
+    width: 60px;                        /* ancho */
+    height: 60px;                       /* alto */
+    display: flex;                      /* flex container */
+    justify-content: center;            /* centra horizontalmente */
+    align-items: center;                /* centra verticalmente */
 }
 
+/* Imagen dentro del carrito */
 .cart img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    display: block;
+    width: 50px;                        /* ancho */
+    height: 50px;                       /* alto */
+    object-fit: contain;                /* mantiene proporción */
+    display: block;                     /* elemento bloque */
 }
 
+/* Hover del carrito */
 .cart:hover {
-    background-color: #0080ff;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    background-color: #0080ff;          /* azul más claro */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* sombra más intensa */
 }
 
-/* Contenido del carrito */
+/* Elemento del carrito */
 .cart-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    display: flex;                      /* flex container */
+    justify-content: center;            /* centra horizontalmente */
+    align-items: center;                /* centra verticalmente */
+    padding: 10px 0;                    /* padding vertical */
+    border-bottom: 1px solid #ddd;      /* línea divisoria inferior */
 }
 
 .cart-item span {
-    font-size: 1.2em;
-    width: 50%;
-    text-align: center;
+    font-size: 1.2em;                   /* tamaño de fuente */
+    width: 50%;                         /* ancho relativo */
+    text-align: center;                 /* texto centrado */
 }
 
+/* Total del carrito */
 .cart-total {
-    margin-top: 20px;
-    font-size: 1.4em;
-    font-weight: bold;
-    text-align: center;
+    margin-top: 20px;                   /* espacio superior */
+    font-size: 1.4em;                   /* tamaño de fuente */
+    font-weight: bold;                  /* negrita */
+    text-align: center;                 /* centrado */
 }
 
 .cart-total h3 {
-    color: #00509e;
+    color: #00509e;                     /* azul fuerte */
 }
 
-/* Botón de confirmar */
+/* Botón de confirmar compra */
 button {
-    background-color: #00509e;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2em;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
+    background-color: #00509e;          /* azul fuerte */
+    color: white;                       /* texto blanco */
+    padding: 10px 20px;                 /* espacio interno */
+    border: none;                       /* sin borde */
+    border-radius: 5px;                 /* esquinas redondeadas */
+    cursor: pointer;                    /* cursor tipo mano */
+    font-size: 1.2em;                   /* tamaño de fuente */
+    margin-top: 20px;                   /* espacio superior */
+    transition: background-color 0.3s ease; /* transición suave */
 }
 
 button:hover {
-    background-color: #003f7f;
+    background-color: #003f7f;          /* azul más oscuro al hover */
 }
 
-/* Botón de enviar al WhatsApp */
+/* Botón de enviar por WhatsApp */
 .whatsapp-button {
-    background-color: #25d366;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2em;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-    text-align: center;
+    background-color: #25d366;          /* verde WhatsApp */
+    color: white;                       /* texto blanco */
+    padding: 10px 20px;                 /* espacio interno */
+    border: none;                       /* sin borde */
+    border-radius: 5px;                 /* esquinas redondeadas */
+    cursor: pointer;                    /* cursor tipo mano */
+    font-size: 1.2em;                   /* tamaño de fuente */
+    margin-top: 20px;                   /* espacio superior */
+    transition: background-color 0.3s ease; /* transición suave */
+    text-align: center;                 /* centrado */
 }
 
 .whatsapp-button:hover {
-    background-color: #128c7e;
+    background-color: #128c7e;          /* verde más oscuro al hover */
 }
 
 /* Botón de eliminar artículo */
@@ -274,119 +350,121 @@ button:hover {
     cursor: pointer;
     font-size: 0.9em;
     margin-left: 10px;
+    margin-top: 0;       /* 🔹 asegura que no tenga margen superior extra */
+    align-self: center;  /* 🔹 centra el botón verticalmente */
     transition: background-color 0.3s ease;
 }
 
+
 .remove-item:hover {
-    background-color: #c0392b;
+    background-color: #c0392b;          /* rojo más oscuro al hover */
 }
 
-/* Estilos para el mensaje emergente */
+/* Mensaje emergente al agregar al carrito */
 .added-to-cart-message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1.2em;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 1000;
+    position: fixed;                    /* posición fija */
+    bottom: 20px;                       /* desde abajo */
+    left: 50%;                          /* centrado horizontal */
+    transform: translateX(-50%);        /* ajusta posición */
+    background-color: #28a745;          /* verde */
+    color: white;                       /* texto blanco */
+    padding: 10px 20px;                 /* espacio interno */
+    border-radius: 10px;                 /* esquinas redondeadas */
+    font-size: 1.2em;                   /* tamaño de fuente */
+    display: none;                      /* oculto por defecto */
+    opacity: 5;                         /* transparencia inicial */
+    transition: opacity 0.5s ease-in-out; /* transición de opacidad */
+    z-index: 1000;                      /* encima de otros elementos */
 }
 
+/* Muestra el mensaje emergente */
 .added-to-cart-message.show {
-    display: block;
-    opacity: 1;
-    animation: slideIn 0.5s ease-out;
+    display: block;                     /* se muestra */
+    opacity: 1;                         /* opaco */
+    animation: slideIn 0.5s ease-out;   /* animación de entrada */
 }
 
+/* Animación slideIn */
 @keyframes slideIn {
     from {
-        transform: translateX(-50%) translateY(50px);
-        opacity: 0;
+        transform: translateX(-50%) translateY(50px); /* posición inicial */
+        opacity: 0;                                   /* transparente */
     }
     to {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
+        transform: translateX(-50%) translateY(0);    /* posición final */
+        opacity: 1;                                   /* opaco */
     }
 }
 
-/* RESPONSIVE STYLES */
+/* ===== Estilos responsivos ===== */
+
+/* Para pantallas de hasta 900px */
 @media (max-width: 900px) {
     .category {
-        font-size: 2em;
+        font-size: 2em;               /* reduce tamaño de fuente */
     }
     .product {
-        width: 160px;
-        height: 270px;
-        font-size: 0.95em;
-        padding: 6px;
+        width: 160px;                 /* reduce ancho */
+        height: 270px;                /* reduce alto */
+        font-size: 0.95em;            /* reduce fuente */
+        padding: 6px;                 /* reduce padding */
     }
     .product img {
-        max-height: 120px;
+        max-height: 120px;            /* reduce altura de imagen */
     }
     .carousel {
-        gap: 10px;
-        padding: 8px 0;
+        gap: 10px;                    /* reduce espacio entre items */
+        padding: 8px 0;               /* padding vertical */
     }
 }
 
+/* Para pantallas de hasta 600px */
 @media (max-width: 600px) {
     .catalog {
-        padding: 10px;
+        padding: 10px;                /* reduce padding del catálogo */
     }
     .category {
-        font-size: 1.3em;
+        font-size: 1.3em;             /* reduce fuente */
     }
     .product {
-        width: 120px;
-        height: 200px;
-        font-size: 0.85em;
-        padding: 4px;
+        width: 120px;                 /* reduce ancho */
+        height: 200px;                /* reduce alto */
+        font-size: 0.85em;            /* reduce fuente */
+        padding: 4px;                 /* reduce padding */
     }
     .product img {
-        max-height: 80px;
+        max-height: 80px;             /* reduce altura de imagen */
     }
     header h1 {
-        font-size: 1.2em;
+        font-size: 1.2em;             /* reduce tamaño del título */
     }
     .search-bar input {
-        font-size: 1em;
-        width: 100%;
+        font-size: 1em;               /* ajusta fuente del input */
+        width: 100%;                  /* ancho completo */
     }
     .carousel-prev, .carousel-next {
-        font-size: 1.5rem;
-        padding: 2px;
+        font-size: 1.5rem;            /* reduce tamaño de flechas */
+        padding: 2px;                 /* reduce padding */
     }
 }
 
+/* Para pantallas de hasta 425px */
 @media (max-width: 425px) {
     .category {
-        font-size: 1em;
+        font-size: 1em;               /* reduce fuente */
     }
     .product {
-        width: 90px;
-        height: 140px;
-        font-size: 0.75em;
-        padding: 2px;
+        width: 90px;                  /* reduce ancho */
+        height: 140px;                /* reduce alto */
+        font-size: 0.75em;            /* reduce fuente */
+        padding: 2px;                 /* reduce padding */
     }
     .product img {
-        max-height: 50px;
+        max-height: 50px;             /* reduce altura de imagen */
     }
     .carousel {
-        gap: 5px;
-        padding: 4px 0;
-    }
-}
-
-/* Ajuste del fondo en móviles */
-@media (max-width: 768px) {
-    body {
-        background-attachment: scroll; /* evita que se corte el fondo en móviles */
+        gap: 5px;                     /* reduce espacio entre items */
+        padding: 4px 0;               /* padding vertical */
     }
 }
 
