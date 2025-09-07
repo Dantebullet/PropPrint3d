@@ -383,4 +383,11 @@ button:hover {
     }
 }
 
+/* Ajuste del fondo en móviles */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* evita que se corte el fondo en móviles */
+    }
+}
+
 /* ...fin de estilos... */
