@@ -1,5 +1,118 @@
-// ...existing code...
+let cart = [];
 
+function addToCart(product, price) {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'block';
+
+    setTimeout(() => {
+        const existingProduct = cart.find(item => item.product === product);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+            existingProduct.totalPrice = existingProduct.quantity * existingProduct.price;
+        } else {
+            cart.push({ product, price, quantity: 1, totalPrice: price });
+        }
+        updateCartModal();
+
+        loader.style.display = 'none';
+
+        showAddedMessage();
+    }, 100);
+}
+
+function showAddedMessage() {
+    const message = document.createElement('div');
+    message.classList.add('added-to-cart-message');
+    message.textContent = '¡Producto añadido al carrito!';
+
+    document.body.appendChild(message);
+
+    setTimeout(() => {
+        message.classList.add('show');
+    }, 100);
+
+    setTimeout(() => {
+        message.classList.remove('show');
+        document.body.removeChild(message);
+    }, 3000);
+}
+
+function updateCartModal() {
+    const modal = document.getElementById('cartModal');
+    const cartItemsContainer = document.getElementById('cartItems');
+    const totalPriceContainer = document.getElementById('totalPrice');
+    cartItemsContainer.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<tr><td colspan="5">El carrito está vacío.</td></tr>';
+        totalPriceContainer.textContent = '0.00';
+    } else {
+        let total = 0;
+        cart.forEach((item, index) => {
+            total += item.totalPrice;
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.product}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.totalPrice.toFixed(2)}</td>
+                <td><button class="remove-item" onclick="removeFromCart(${index})">Eliminar</button></td>
+            `;
+            cartItemsContainer.appendChild(row);
+        });
+        totalPriceContainer.textContent = total.toFixed(2);
+    }
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartModal();
+}
+
+function openCartModal() {
+    const modal = document.getElementById('cartModal');
+    modal.style.display = "block";
+    updateCartModal();
+}
+
+function closeModal() {
+    const modal = document.getElementById('cartModal');
+    modal.style.display = "none";
+}
+
+function filterProducts() {
+    const searchInput = document.getElementById('search').value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+        const name = product.querySelector('h3').textContent.toLowerCase();
+        const category = product.getAttribute('data-category').toLowerCase();
+        if (name.includes(searchInput) || category.includes(searchInput)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+}
+
+function proceedToWhatsApp() {
+    let cartMessage = "Pedido:\n";
+    let total = 0;
+
+    cart.forEach(item => {
+        cartMessage += `${item.product} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
+        total += item.totalPrice;
+    });
+
+    cartMessage += `\nTotal: $${total.toFixed(2)}`;
+
+    const encodedMessage = encodeURIComponent(cartMessage);
+    const whatsappUrl = `https://wa.me/3320600333?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+}
+
+// Carrusel scroll mejorado: avanza solo un producto por clic
 document.addEventListener('DOMContentLoaded', function () {
     function smoothScroll(element, change, duration) {
         const start = element.scrollLeft;
@@ -25,10 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function getScrollStep(carousel) {
-        // Obtiene el ancho de un producto + gap
         const product = carousel.querySelector('.product');
         if (!product) return 250;
-        const style = window.getComputedStyle(carousel);
         let gap = 20;
         if (window.innerWidth <= 900) gap = 10;
         if (window.innerWidth <= 600) gap = 5;
@@ -40,8 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (carousel) {
             const step = getScrollStep(carousel);
             smoothScroll(carousel, -step, 300);
-        } else {
-            console.error("El elemento no existe o no soporta scrollLeft");
         }
     }
 
@@ -50,8 +159,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (carousel) {
             const step = getScrollStep(carousel);
             smoothScroll(carousel, step, 300);
-        } else {
-            console.error("El elemento no existe o no soporta scrollRight");
         }
     }
 
@@ -83,79 +190,3 @@ document.addEventListener('DOMContentLoaded', function () {
         scrollRight('nueva-categoria-2');
     });
 });
-
-// script.js
-
-let cart = [];
-
-// Añadir producto al carrito
-function addToCart(product, price) {
-    let item = cart.find(i => i.product === product);
-    if (item) {
-        item.quantity++;
-    } else {
-        cart.push({ product, price, quantity: 1 });
-    }
-    updateCart();
-}
-
-// Actualizar la tabla del carrito
-function updateCart() {
-    let cartItems = document.getElementById("cartItems");
-    cartItems.innerHTML = "";
-
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        let itemTotal = item.price * item.quantity;
-        total += itemTotal;
-
-        cartItems.innerHTML += `
-            <tr>
-                <td>${item.product}</td>
-                <td>$${item.price}</td>
-                <td>${item.quantity}</td>
-                <td>$${itemTotal}</td>
-                <td>
-                    <button onclick="removeFromCart(${index})">❌</button>
-                </td>
-            </tr>
-        `;
-    });
-
-    document.getElementById("totalPrice").innerText = total;
-}
-
-// Eliminar producto del carrito
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-
-// Abrir modal
-function openCartModal() {
-    document.getElementById("cartModal").style.display = "block";
-}
-
-// Cerrar modal
-function closeModal() {
-    document.getElementById("cartModal").style.display = "none";
-}
-
-// Enviar pedido a WhatsApp
-function proceedToWhatsApp() {
-    if (cart.length === 0) {
-        alert("Tu carrito está vacío.");
-        return;
-    }
-
-    let message = "Hola, quiero hacer este pedido:\n";
-    cart.forEach(item => {
-        message += `${item.quantity}x ${item.product} - $${item.price}\n`;
-    });
-    message += `\nTotal: $${document.getElementById("totalPrice").innerText}`;
-
-    let url = "https://wa.me/5213312345678?text=" + encodeURIComponent(message);
-    window.open(url, "_blank");
-}
-// ...existing code...
