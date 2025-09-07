@@ -2,7 +2,7 @@ let cart = [];
 
 function addToCart(product, price) {
     const loader = document.getElementById('loader');
-    loader.style.display = 'block';  // Mostrar cargador
+    loader.style.display = 'block';
 
     setTimeout(() => {
         const existingProduct = cart.find(item => item.product === product);
@@ -15,7 +15,7 @@ function addToCart(product, price) {
         }
         updateCartModal();
 
-        loader.style.display = 'none';  // Ocultar cargador
+        loader.style.display = 'none';
 
         showAddedMessage();
     }, 100);
@@ -112,6 +112,7 @@ function proceedToWhatsApp() {
     window.open(whatsappUrl, '_blank');
 }
 
+// Carrusel scroll mejorado: avanza solo un producto por clic
 document.addEventListener('DOMContentLoaded', function () {
     function smoothScroll(element, change, duration) {
         const start = element.scrollLeft;
@@ -136,23 +137,28 @@ document.addEventListener('DOMContentLoaded', function () {
         return -c / 2 * (t * (t - 2) - 1) + b;
     }
 
+    function getScrollStep(carousel) {
+        const product = carousel.querySelector('.product');
+        if (!product) return 250;
+        let gap = 20;
+        if (window.innerWidth <= 900) gap = 10;
+        if (window.innerWidth <= 600) gap = 5;
+        return product.offsetWidth + gap;
+    }
+
     function scrollLeft(categoryId) {
         const carousel = document.getElementById(categoryId);
         if (carousel) {
-            const step = 600;  // Ajusta el paso del desplazamiento
-            smoothScroll(carousel, -step, 300);  // Ajusta la duración para que sea más rápida
-        } else {
-            console.error("El elemento no existe o no soporta scrollLeft");
+            const step = getScrollStep(carousel);
+            smoothScroll(carousel, -step, 300);
         }
     }
 
     function scrollRight(categoryId) {
         const carousel = document.getElementById(categoryId);
         if (carousel) {
-            const step = 600;  // Ajusta el paso del desplazamiento
-            smoothScroll(carousel, step, 300);  // Ajusta la duración para que sea más rápida
-        } else {
-            console.error("El elemento no existe o no soporta scrollRight");
+            const step = getScrollStep(carousel);
+            smoothScroll(carousel, step, 300);
         }
     }
 
