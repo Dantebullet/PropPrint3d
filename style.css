@@ -1,9 +1,20 @@
-/* Centrar el botón de confirmar */
 .confirm-btn-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+    justify-content: center; /* centra horizontalmente */
+    margin-top: 20px;        /* espacio con lo de arriba */
+}
+
+.confirm-btn-container button {
+    padding: 10px 20px;
+    background-color: #28a745; /* verde tipo WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-btn-container button:hover {
+    background-color: #218838; /* verde más oscuro al pasar el mouse */
 }
 
 /* Estilos Generales */
