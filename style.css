@@ -20,6 +20,12 @@
     background-color: #218838;          /* verde más oscuro al pasar el mouse */
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* evita que se mueva a los lados */
+}
+
 /* Estilos generales del body */
 body {
     font-family: Arial, sans-serif;     /* fuente principal */
@@ -29,6 +35,13 @@ body {
     background-size: cover;             /* cubre todo el fondo */
     background-position: center center; /* centrado horizontal y vertical */
     background-attachment: fixed;       /* fondo fijo al hacer scroll */
+    min-height: 100%;
+    height: auto;
+}
+
+/* Opcional si usas secciones a pantalla completa */
+.fullscreen {
+    height: 100dvh; /* mejor que 100vh en móviles */
 }
 
 /* Encabezado principal */
@@ -63,7 +76,7 @@ header:hover {
 }
 
 .catalog {
-    padding: 30px 30px 30px 30px; /* arriba 5px, derecha 30px, abajo 30px, izquierda 30px */
+    padding: 10px 30px 10px 30px; /* arriba 5px, derecha 30px, abajo 30px, izquierda 30px */
 }
 
 .category:first-of-type {
@@ -76,11 +89,11 @@ header:hover {
     width: fit-content;      /* ancho del contenido */
     margin: 40px auto;       /* centrado horizontal */
     padding: 15px 30px;
-    background-color: #9b8fb5;
-    color: #163C6B;
+    background-color: #163C6B;
+    color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
@@ -89,7 +102,7 @@ header:hover {
 
 /* Hover sobre categoría */
 .category:hover {
-    background-color: #FFEC8B;          /* color más claro al pasar mouse */
+    background-color: #1C4D8E;          /* color más claro al pasar mouse */
     transform: scale(1.05);             /* pequeño zoom */
     box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* sombra más intensa */
 }
@@ -123,7 +136,7 @@ header:hover {
     border-radius: 25px;                /* esquinas redondeadas */
     padding: 10px;                      /* espacio interno */
     width: 250px;                       /* ancho fijo */
-    height: 400px;                      /* alto fijo */
+    height: 300px;                      /* alto fijo */
     text-align: center;                 /* texto centrado */
     flex-shrink: 0;                     /* evita que se reduzca en flexbox */
     display: flex;                      /* estructura interna en columna */
@@ -180,19 +193,19 @@ header:hover {
     color: white;
     border: none;
     padding: 10px;
-    font-size: 2rem;
-    border-radius: 50%;          /* opcional: circulares */
+    font-size: 1rem;
+    border-radius: 10%;          /* opcional: circulares */
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease;
 }
 
 /* Separación desde los bordes del contenedor */
 .carousel-prev {
-    left: 20px;    /* 20px desde el borde izquierdo */
+    left: 10px;    /* 20px desde el borde izquierdo */
 }
 
 .carousel-next {
-    right: 20px;   /* 20px desde el borde derecho */
+    right: 10px;   /* 20px desde el borde derecho */
 }
 
 /* Hover sobre flechas */
@@ -467,5 +480,7 @@ button:hover {
         padding: 4px 0;               /* padding vertical */
     }
 }
+
+
 
 /* ...fin de estilos... */
