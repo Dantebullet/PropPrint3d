@@ -13,6 +13,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 1em; /* tamaño de fuente adaptable */
 }
 
 .confirm-btn-container button:hover {
@@ -24,10 +25,10 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-image: url("./Imagenes/Fondo2.png");
     background-size: cover;
     background-position: center center;
@@ -95,7 +96,7 @@ header:hover {
     overflow: hidden;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 50px; /* espacio para flechas */
+    padding: 0 50px;
 }
 
 .carousel {
@@ -109,40 +110,38 @@ header:hover {
     flex: 0 0 auto;
 }
 
-/* Oculta scroll en WebKit */
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
-/* Productos */
+/* ====================== Productos ====================== */
 .product {
     flex-shrink: 0;
     width: 250px;
     height: 300px;
     background-color: #fff;
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
     position: relative;
-    z-index: 2; /* sobre fondo pero debajo de modal */
+    z-index: 2;
 }
 
 .product img {
     max-width: 100%;
     max-height: 200px;
-    display: block;
-    margin: 10px auto;
     object-fit: contain;
     border-radius: 20px;
+    margin: 10px 0;
 }
 
 .product h3 {
     margin: 0;
     font-size: 1.2em;
-    text-align: center;
 }
 
 .product p {
@@ -152,12 +151,11 @@ header:hover {
 }
 
 .product button {
-    margin: 0;
     padding: 10px 20px;
     background-color: #3432b5;
     color: #fff;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
@@ -183,7 +181,6 @@ header:hover {
     cursor: pointer;
     z-index: 10;
     font-size: 1.5em;
-    transition: background-color 0.3s ease;
 }
 
 .carousel-prev:hover, .carousel-next:hover {
@@ -210,25 +207,24 @@ header:hover {
     background-color: #fff;
     margin: 5% auto;
     padding: 20px;
-    border-radius: 10px; /* como antes */
+    border-radius: 15px;
     width: 80%;
     max-width: 400px;
     max-height: 70vh;
     overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 .close {
-    color: #aaa; /* color gris original */
+    color: #aaa;
     float: right;
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
 }
 
 .close:hover, .close:focus {
-    color: #000; /* negro al pasar el mouse */
+    color: #000;
 }
 
 /* ====================== Carrito ====================== */
@@ -255,17 +251,18 @@ header:hover {
     box-shadow: 0 6px 8px rgba(0,0,0,0.4);
 }
 
-.cart img { width: 50px; height: 50px; object-fit: contain; }
+.cart img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 10px 0;
     border-bottom: 1px solid #ddd;
-    background-color: #f8f9fa; /* color de fondo del cuadro */
-    border-radius: 10px;       /* esquinas redondeadas */
-    margin-bottom: 10px;
 }
 
 .cart-item span {
@@ -283,6 +280,12 @@ header:hover {
 }
 
 /* ====================== Botones ====================== */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover { background-color: #003f7f; }
+
 .whatsapp-button {
     background-color: #25d366;
     color: white;
@@ -290,23 +293,20 @@ header:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2em; /* tamaño grande */
+    font-size: 1.2em;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.whatsapp-button:hover {
-    background-color: #128c7e;
-}
+.whatsapp-button:hover { background-color: #128c7e; }
 
-/* ====================== Botón de eliminar ====================== */
 .remove-item {
-    background-color: #e74c3c;          /* rojo original */
+    background-color: #e74c3c;
     color: white;
     padding: 5px 10px;
     border: none;
-    border-radius: 10px;                /* como antes */
+    border-radius: 10px;
     cursor: pointer;
     font-size: 0.9em;
     margin-top: auto;
@@ -314,21 +314,7 @@ header:hover {
     transition: background-color 0.3s ease;
 }
 
-.remove-item:hover {
-    background-color: #c0392b;          /* rojo más oscuro al pasar el mouse */
-}
-
-/* ====================== Tabla del carrito ====================== */
-#cartTable td {
-    text-align: center; /* centra todo el contenido de cada celda */
-    vertical-align: middle; /* centra verticalmente */
-}
-
-/* Opcional: si quieres centrar específicamente la cantidad */
-#cartTable td.quantity {
-    text-align: center;
-    vertical-align: middle;
-}
+.remove-item:hover { background-color: #c0392b; }
 
 /* ====================== Mensaje agregado ====================== */
 .added-to-cart-message {
@@ -362,6 +348,7 @@ header:hover {
     .category { font-size: 2em; }
     .product { width: 160px; height: 270px; font-size: 0.95em; padding: 6px; }
     .product img { max-height: 120px; }
+    .product button { font-size: 0.9em; padding: 8px 16px; } /* botones más pequeños */
     .carousel { gap: 10px; padding: 0 40px; }
 }
 
@@ -369,6 +356,7 @@ header:hover {
     .category { font-size: 1.3em; }
     .product { width: 120px; height: 200px; font-size: 0.85em; padding: 4px; }
     .product img { max-height: 80px; }
+    .product button { font-size: 0.8em; padding: 6px 12px; } /* reducir más */
     header h1 { font-size: 1.2em; }
     .search-bar input { width: 100%; font-size: 1em; }
     .carousel { padding: 0 30px; gap: 8px; }
@@ -379,5 +367,6 @@ header:hover {
     .category { font-size: 1em; }
     .product { width: 90px; height: 140px; font-size: 0.75em; padding: 2px; }
     .product img { max-height: 50px; }
+    .product button { font-size: 0.7em; padding: 4px 8px; } /* botones más pequeños aún */
     .carousel { gap: 5px; padding: 0 20px; }
 }
