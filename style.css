@@ -218,7 +218,7 @@ header:hover {
 .modal {
     display: none;                      /* oculto por defecto */
     position: fixed;                    /* posición fija */
-    z-index: 1;                         /* prioridad sobre otros elementos */
+    z-index: 9999;                         /* prioridad sobre otros elementos */
     left: 0;                            /* alineado al borde izquierdo */
     top: 0;                             /* alineado al borde superior */
     width: 100%;                        /* ancho completo */
