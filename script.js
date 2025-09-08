@@ -73,12 +73,25 @@ function removeFromCart(index) {
 function openCartModal() {
     const modal = document.getElementById('cartModal');
     modal.style.display = "block";
-    updateCartModal();
+
+    // Bloquear scroll
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`; // mantiene la posición actual
+    document.body.style.left = '0';
+    document.body.style.right = '0';
 }
 
 function closeModal() {
     const modal = document.getElementById('cartModal');
     modal.style.display = "none";
+
+    // Restaurar scroll
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1); // vuelve a la posición original
 }
 
 function filterProducts() {
@@ -162,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    
     window.scrollLeft = scrollLeft;
     window.scrollRight = scrollRight;
 
