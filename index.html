@@ -2,48 +2,44 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Catálogo de Impresiones 3D</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-
-    </style>
 </head>
 <body>
     <!-- Animación de Cargando -->
     <div class="loader" id="loader"></div>
 
-<div class="cart" onclick="openCartModal()">
-    <img src="./Imagenes/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
-</div>
+    <!-- Carrito -->
+    <div class="cart" onclick="openCartModal()">
+        <img src="./Imagenes/carrito-de-compras.png" alt="Carrito" style="width: 30px; height: 30px;">
+    </div>
 
-<!-- Modal del carrito -->
-<div id="cartModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2>Tu pedido</h2>
-        <!-- Usamos tabla para mostrar los elementos del carrito -->
-        <table id="cartTable">
-            <thead>
-                <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Total</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="cartItems"></tbody>
-        </table>
-        <div class="cart-total">
-            <h3>Total: $<span id="totalPrice">0</span></h3>
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Tu pedido</h2>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems"></tbody>
+            </table>
+            <div class="cart-total">
+                <h3>Total: $<span id="totalPrice">0</span></h3>
+            </div>
+            <div class="confirm-btn-container">
+                <button class="whatsapp-button" onclick="proceedToWhatsApp()">Confirmar y enviar a WhatsApp</button>
+            </div>
         </div>
-        <div class="confirm-btn-container">
-            <button onclick="proceedToWhatsApp()">Confirmar y enviar a WhatsApp</button>
-        </div>
-    </div> <!-- cierre de modal-content -->
-</div> <!-- cierre de modal -->
-
+    </div>
 
     <header>
         <h1>Catálogo de Impresiones 3D</h1>
@@ -62,67 +58,66 @@
         <div class="carousel-container">
             <button id="scroll-left-decoracion" class="carousel-prev">⬅</button>
             <div class="carousel" id="decoracion">
-                <div class="product" data-category="Decoración" data-name="Decoración">
+                <div class="product" data-category="Decoración" data-name="Litofania">
                     <img src="./Imagenes/1.1.jpg" alt="Litofania">
                     <h3>Litofania</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Litofania', 250)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
+                <div class="product" data-category="Decoración" data-name="Arbol de Navidad">
                     <img src="./Imagenes/Arbol de Navidad.jpg" alt="Arbol de Navidad">
                     <h3>Arbol de Navidad</h3>
                     <p>$150</p>
                     <button onclick="addToCart('Arbol de Navidad', 150)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
+                <div class="product" data-category="Decoración" data-name="Maceta Low Poly">
                     <img src="./Imagenes/Maceta Low Poly.jpg" alt="Maceta Low Poly">
                     <h3>Maceta Low Poly</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Maceta Low Poly', 250)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
+                <div class="product" data-category="Decoración" data-name="Lampara Luna">
                     <img src="./Imagenes/Lampara Luna.jpg" alt="Lampara Luna">
                     <h3>Lampara Luna</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Lampara Luna', 250)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
+                <div class="product" data-category="Decoración" data-name="Lampara Valeria">
                     <img src="./Imagenes/Lampara Valeria.jpg" alt="Lampara Valeria">
                     <h3>Lampara Valeria</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Lampara Valeria', 250)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
+                <div class="product" data-category="Decoración" data-name="Lampara Tulipan">
                     <img src="./Imagenes/Lampara Tulipan.jpeg" alt="Lampara Tulipan">
                     <h3>Lampara Tulipan</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Lampara Tulipan', 300)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Florero Trensado.jpg" alt="Florero Trensado">
+                <div class="product" data-category="Decoración" data-name="Florero Trensado">
+                    <img src="./Imagenes/Florero Trensado.jpg" alt="Florero Trensado">
                     <h3>Florero Trensado</h3>
                     <p>$250</p>
-                    <button onclick="addToCart('Florero Trensado', 300)">Añadir al pedido</button>
+                    <button onclick="addToCart('Florero Trensado', 250)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Vaso Voroni Espiral.png" alt="Vaso Voroni Espiral">
+                <div class="product" data-category="Decoración" data-name="Vaso Voroni Espiral">
+                    <img src="./Imagenes/Vaso Voroni Espiral.png" alt="Vaso Voroni Espiral">
                     <h3>Vaso Voroni Espiral</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Vaso Voroni Espiral', 300)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Linterna Minecraft.jpg" alt="Linterna Minecraft">
+                <div class="product" data-category="Decoración" data-name="Linterna Minecraft">
+                    <img src="./Imagenes/Linterna Minecraft.jpg" alt="Linterna Minecraft">
                     <h3>Linterna Minecraft</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Linterna Minecraft', 300)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Decoración" data-name="Decoración">
-                    <img src=".\Imagenes\Jarron Personalizado.png" alt="Jarron Personalizado">
+                <div class="product" data-category="Decoración" data-name="Jarron Personalizado">
+                    <img src="./Imagenes/Jarron Personalizado.png" alt="Jarron Personalizado">
                     <h3>Jarron Personalizado</h3>
                     <p>$300</p>
                     <button onclick="addToCart('Jarron Personalizado', 300)">Añadir al pedido</button>
                 </div>
-                <!-- Añade más productos si es necesario -->
             </div>
             <button id="scroll-right-decoracion" class="carousel-next">➡</button>
         </div>
@@ -132,204 +127,140 @@
         <div class="carousel-container">
             <button id="scroll-left-Llaveros" class="carousel-prev">⬅</button>
             <div class="carousel" id="Llaveros">
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Coroazon Geometrico.webp" alt="Coroazon Geometrico">
+                <div class="product" data-category="Llaveros" data-name="Coroazon Geometrico">
+                    <img src="./Imagenes/Coroazon Geometrico.webp" alt="Coroazon Geometrico">
                     <h3>Coroazon Geometrico</h3>
                     <p>$45</p>
                     <button onclick="addToCart('Coroazon Geometrico', 45)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Camara Polaroid.jpg" alt="Camara Polaroid">
+                <div class="product" data-category="Llaveros" data-name="Camara Polaroid">
+                    <img src="./Imagenes/Camara Polaroid.jpg" alt="Camara Polaroid">
                     <h3>Camara Polaroid</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Camara Polaroid', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llavero Gers of War.jpg" alt="Llavero Gers of War">
+                <div class="product" data-category="Llaveros" data-name="Llavero Gers of War">
+                    <img src="./Imagenes/Llavero Gers of War.jpg" alt="Llavero Gers of War">
                     <h3>Llavero Gers of War</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Llavero Gers of War', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Zoro One Piece.jpg" alt="Zoro One Piece">
+                <div class="product" data-category="Llaveros" data-name="Zoro One Piece">
+                    <img src="./Imagenes/Zoro One Piece.jpg" alt="Zoro One Piece">
                     <h3>Zoro One Piece</h3>
                     <p>$60</p>
                     <button onclick="addToCart('Zoro One Piece', 60)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llavero Pizza.png" alt="Llavero Pizza">
-                    <h3>LLlavero Pizza</h3>
+                <div class="product" data-category="Llaveros" data-name="Llavero Pizza">
+                    <img src="./Imagenes/Llavero Pizza.png" alt="Llavero Pizza">
+                    <h3>Llavero Pizza</h3>
                     <p>$70</p>
                     <button onclick="addToCart('Llavero Pizza', 70)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llavero Pacman.jpg" alt="Llavero Pacman">
+                <div class="product" data-category="Llaveros" data-name="Llavero Pacman">
+                    <img src="./Imagenes/Llavero Pacman.jpg" alt="Llavero Pacman">
                     <h3>Llavero Pacman</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Llavero Pacman', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Cabeza de Dead Pool.png" alt="Cabeza de Dead Pool">
+                <div class="product" data-category="Llaveros" data-name="Cabeza de Dead Pool">
+                    <img src="./Imagenes/Cabeza de Dead Pool.png" alt="Cabeza de Dead Pool">
                     <h3>Cabeza de Dead Pool</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Cabeza de Dead Pool', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llaveros Sharingan.jpg" alt="Llaveros Sharingan">
+                <div class="product" data-category="Llaveros" data-name="Llaveros Sharingan">
+                    <img src="./Imagenes/Llaveros Sharingan.jpg" alt="Llaveros Sharingan">
                     <h3>Llaveros Sharingan</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Llaveros Sharingan', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Hongos de Mario Bros.jpg" alt="Hongos de Mario Bros">
+                <div class="product" data-category="Llaveros" data-name="Hongos de Mario Bros">
+                    <img src="./Imagenes/Hongos de Mario Bros.jpg" alt="Hongos de Mario Bros">
                     <h3>Hongos de Mario Bros</h3>
                     <p>$50</p>
                     <button onclick="addToCart('Hongos de Mario Bros', 50)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Llaveros Deformitos.png" alt="Llaveros Deformitos">
+                <div class="product" data-category="Llaveros" data-name="Llaveros Deformitos">
+                    <img src="./Imagenes/Llaveros Deformitos.png" alt="Llaveros Deformitos">
                     <h3>Llaveros Deformitos</h3>
                     <p>$35</p>
                     <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Bandas.jpg" alt="Llaveros Bandas Rock">
+                <div class="product" data-category="Llaveros" data-name="Llaveros Bandas Rock">
+                    <img src="./Imagenes/Bandas.jpg" alt="Llaveros Bandas Rock">
                     <h3>Llaveros Bandas Rock</h3>
                     <p>$35</p>
                     <button onclick="addToCart('Llaveros Bandas Rock', 35)">Añadir al pedido</button>
                 </div>
-                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Dino.JPG" alt="Llavero Dino">
+                <div class="product" data-category="Llaveros" data-name="Llavero Dino">
+                    <img src="./Imagenes/Dino.JPG" alt="Llavero Dino">
                     <h3>Llavero Dino</h3>
                     <p>$35</p>
-                    <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
+                    <button onclick="addToCart('Llavero Dino', 35)">Añadir al pedido</button>
                 </div>
-                                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\dragon.JPG" alt="Llavero dragon">
-                    <h3>Llavero dragon</h3>
+                <div class="product" data-category="Llaveros" data-name="Llavero Dragon">
+                    <img src="./Imagenes/dragon.JPG" alt="Llavero Dragon">
+                    <h3>Llavero Dragon</h3>
                     <p>$35</p>
-                    <button onclick="addToCart('Llaveros dragon', 35)">Añadir al pedido</button>
+                    <button onclick="addToCart('Llavero Dragon', 35)">Añadir al pedido</button>
                 </div>
-                                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Futbol.JPG" alt="Llavero Futbol">
+                <div class="product" data-category="Llaveros" data-name="Llavero Futbol">
+                    <img src="./Imagenes/Futbol.JPG" alt="Llavero Futbol">
                     <h3>Llavero Futbol</h3>
                     <p>$35</p>
                     <button onclick="addToCart('Llavero Futbol', 35)">Añadir al pedido</button>
                 </div>
-                                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Dino.JPG" alt="Llavero Dino">
-                    <h3>Llavero Dino</h3>
-                    <p>$35</p>
-                    <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
-                </div>
-                                <div class="product" data-category="Llaveros" data-name="Llaveros">
-                    <img src=".\Imagenes\Dino.JPG" alt="Llavero Dino">
-                    <h3>Llavero Dino</h3>
-                    <p>$35</p>
-                    <button onclick="addToCart('Llaveros Deformitos', 35)">Añadir al pedido</button>
-                </div>
-
-                <!-- Añade más productos si es necesario -->
             </div>
             <button id="scroll-right-Llaveros" class="carousel-next">➡</button>
         </div>
 
-        <!-- Figuras -->
+        <!-- Categoría Figuras -->
         <div class="category">Figuras</div>
         <div class="carousel-container">
             <button id="scroll-left-figuras" class="carousel-prev">⬅</button>
-            <div class="carousel" id="Figuras">
-
+            <div class="carousel" id="figuras">
                 <div class="product" data-category="Figuras" data-name="Goku">
                     <img src="./Imagenes/Goku.jpg" alt="Goku">
                     <h3>Goku</h3>
                     <p>$250</p>
                     <button onclick="addToCart('Goku', 250)">Añadir al pedido</button>
                 </div>
-
                 <div class="product" data-category="Figuras" data-name="Funco Goku">
-                    <img src=".\Imagenes\Funco.jpg" alt="Funco Goku">
+                    <img src="./Imagenes/Funco.jpg" alt="Funco Goku">
                     <h3>Funco Goku</h3>
                     <p>$200</p>
                     <button onclick="addToCart('Funco Goku', 200)">Añadir al pedido</button>
                 </div>
-
                 <div class="product" data-category="Figuras" data-name="Busto Kratos">
-                    <img src=".\Imagenes\Kratos.jpg" alt="Busto Kratos">
+                    <img src="./Imagenes/Kratos.jpg" alt="Busto Kratos">
                     <h3>Busto Kratos</h3>
                     <p>$350</p>
                     <button onclick="addToCart('Busto Kratos', 350)">Añadir al pedido</button>
                 </div>
-
                 <div class="product" data-category="Figuras" data-name="Busto Master Chief">
-                    <img src=".\Imagenes\Master.jpg" alt="Busto Master Chief">
+                    <img src="./Imagenes/Master.jpg" alt="Busto Master Chief">
                     <h3>Busto Master Chief</h3>
                     <p>$400</p>
                     <button onclick="addToCart('Busto Master Chief', 400)">Añadir al pedido</button>
                 </div>
-
                 <div class="product" data-category="Figuras" data-name="Busto Majin Vegueta">
-                    <img src=".\Imagenes\Vegueta.jpg" alt="Busto Majin Vegueta">
+                    <img src="./Imagenes/Vegueta.jpg" alt="Busto Majin Vegueta">
                     <h3>Busto Majin Vegueta</h3>
                     <p>$400</p>
                     <button onclick="addToCart('Busto Majin Vegueta', 400)">Añadir al pedido</button>
                 </div>
-
                 <div class="product" data-category="Figuras" data-name="Funco personalizado">
-                    <img src=".\Imagenes\Funco personalizado.jpeg" alt="Funco personalizado">
+                    <img src="./Imagenes/Funco personalizado.jpeg" alt="Funco personalizado">
                     <h3>Funco personalizado</h3>
                     <p>$500</p>
                     <button onclick="addToCart('Funco personalizado', 500)">Añadir al pedido</button>
                 </div>
-
             </div>
             <button id="scroll-right-figuras" class="carousel-next">➡</button>
         </div>
 
-<!-- Nueva Categoría: Figuras 
-<div class="category">Figuras</div>
-<div class="carousel-container">
-    <button id="scroll-left-figuras" class="carousel-prev">⬅</button>
-    <div class="carousel" id="figuras">
-        <div class="product" data-category="Figuras" data-name="Dragon articulado">
-            <img src="./Imagenes/dragon_articulado.jpg" alt="Dragon articulado">
-            <h3>Dragón articulado</h3>
-            <p>$350</p>
-            <button onclick="addToCart('Dragón articulado', 350)">Añadir al pedido</button>
-        </div>
-        <div class="product" data-category="Figuras" data-name="Baby Yoda">
-            <img src="./Imagenes/baby_yoda.jpg" alt="Baby Yoda">
-            <h3>Baby Yoda</h3>
-            <p>$300</p>
-            <button onclick="addToCart('Baby Yoda', 300)">Añadir al pedido</button>
-        </div>
-        <div class="product" data-category="Figuras" data-name="Iron Man">
-            <img src="./Imagenes/iron_man.jpg" alt="Iron Man">
-            <h3>Iron Man</h3>
-            <p>$400</p>
-            <button onclick="addToCart('Iron Man', 400)">Añadir al pedido</button>
-        </div>
-        
     </div>
-    <button id="scroll-right-figuras" class="carousel-next">➡</button>
-</div>
--->
-
-<!-- Nueva Categoría 2
-<div class="category">Nueva Categoría 2</div>
-<div class="carousel-container">
-    <button id="scroll-left-nueva-categoria-2" class="carousel-prev">⬅</button>
-    <div class="carousel" id="nueva-categoria-2">
-        <div class="product" data-category="Nueva Categoría 2" data-name="Producto 2">
-            <img src="producto2.jpg" alt="Producto 2">
-            <h3>Producto 2</h3>
-            <p>$150</p>
-            <button onclick="addToCart('Producto 2', 150)">Añadir al pedido</button>
-        </div>
-    </div>
-    <button id="scroll-right-nueva-categoria-2" class="carousel-next">➡</button>
-</div>
--->
 
     <script src="script.js"></script>
 </body>
