@@ -1,12 +1,14 @@
 let cart = [];
+let scrollPosition = 0;
+const carouselState = {}; // almacena posición de cada carrusel
 
+// ====================== Carrito ======================
 function addToCart(product, price) {
     const loader = document.getElementById('loader');
     loader.style.display = 'block';
 
     setTimeout(() => {
         const existingProduct = cart.find(item => item.product === product);
-
         if (existingProduct) {
             existingProduct.quantity += 1;
             existingProduct.totalPrice = existingProduct.quantity * existingProduct.price;
@@ -14,9 +16,7 @@ function addToCart(product, price) {
             cart.push({ product, price, quantity: 1, totalPrice: price });
         }
         updateCartModal();
-
         loader.style.display = 'none';
-
         showAddedMessage();
     }, 100);
 }
@@ -25,13 +25,8 @@ function showAddedMessage() {
     const message = document.createElement('div');
     message.classList.add('added-to-cart-message');
     message.textContent = '¡Producto añadido al carrito!';
-
     document.body.appendChild(message);
-
-    setTimeout(() => {
-        message.classList.add('show');
-    }, 100);
-
+    setTimeout(() => message.classList.add('show'), 100);
     setTimeout(() => {
         message.classList.remove('show');
         document.body.removeChild(message);
@@ -39,7 +34,6 @@ function showAddedMessage() {
 }
 
 function updateCartModal() {
-    const modal = document.getElementById('cartModal');
     const cartItemsContainer = document.getElementById('cartItems');
     const totalPriceContainer = document.getElementById('totalPrice');
     cartItemsContainer.innerHTML = '';
@@ -74,11 +68,13 @@ function openCartModal() {
     const modal = document.getElementById('cartModal');
     modal.style.display = "block";
 
-    // Bloquear scroll
+    // Bloquear scroll del fondo
+    scrollPosition = window.pageYOffset;
     document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`; // mantiene la posición actual
+    document.body.style.top = `-${scrollPosition}px`;
     document.body.style.left = '0';
     document.body.style.right = '0';
+    document.body.style.width = '100%';
 }
 
 function closeModal() {
@@ -86,69 +82,45 @@ function closeModal() {
     modal.style.display = "none";
 
     // Restaurar scroll
-    const scrollY = document.body.style.top;
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.left = '';
     document.body.style.right = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1); // vuelve a la posición original
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
 }
 
+// ====================== Buscador ======================
 function filterProducts() {
     const searchInput = document.getElementById('search').value.toLowerCase();
     const products = document.querySelectorAll('.product');
     products.forEach(product => {
         const name = product.querySelector('h3').textContent.toLowerCase();
         const category = product.getAttribute('data-category').toLowerCase();
-        if (name.includes(searchInput) || category.includes(searchInput)) {
-            product.style.display = "block";
-        } else {
-            product.style.display = "none";
-        }
+        product.style.display = (name.includes(searchInput) || category.includes(searchInput)) ? "block" : "none";
     });
 }
 
+// ====================== WhatsApp ======================
 function proceedToWhatsApp() {
+    if(cart.length === 0) {
+        alert("Tu carrito está vacío");
+        return;
+    }
     let cartMessage = "Pedido:\n";
     let total = 0;
-
     cart.forEach(item => {
         cartMessage += `${item.product} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
         total += item.totalPrice;
     });
-
     cartMessage += `\nTotal: $${total.toFixed(2)}`;
-
     const encodedMessage = encodeURIComponent(cartMessage);
     const whatsappUrl = `https://wa.me/3320600333?text=${encodedMessage}`;
-
     window.open(whatsappUrl, '_blank');
 }
 
-// Carrusel scroll mejorado: avanza solo un producto por clic
+// ====================== Carrusel ======================
 document.addEventListener('DOMContentLoaded', function () {
-    function smoothScroll(element, change, duration) {
-        const start = element.scrollLeft;
-        let currentTime = 0;
-        const increment = 20;
-
-        const animateScroll = function() {
-            currentTime += increment;
-            const val = easeInOutQuad(currentTime, start, change, duration);
-            element.scrollLeft = val;
-            if (currentTime < duration) {
-                requestAnimationFrame(animateScroll);
-            }
-        };
-        animateScroll();
-    }
-
-    function easeInOutQuad(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t + b;
-        t--;
-        return -c / 2 * (t * (t - 2) - 1) + b;
-    }
 
     function getScrollStep(carousel) {
         const product = carousel.querySelector('.product');
@@ -159,48 +131,26 @@ document.addEventListener('DOMContentLoaded', function () {
         return product.offsetWidth + gap;
     }
 
-    function scrollLeft(categoryId) {
+    function scrollCarousel(categoryId, direction) {
         const carousel = document.getElementById(categoryId);
-        if (carousel) {
-            const step = getScrollStep(carousel);
-            smoothScroll(carousel, -step, 300);
+        if (!carousel) return;
+
+        const step = getScrollStep(carousel);
+
+        if (direction === 'right') {
+            carousel.scrollLeft += step;
+        } else {
+            carousel.scrollLeft -= step;
         }
     }
 
-    function scrollRight(categoryId) {
-        const carousel = document.getElementById(categoryId);
-        if (carousel) {
-            const step = getScrollStep(carousel);
-            smoothScroll(carousel, step, 300);
-        }
-    }
+    // Ajusta los IDs según tu HTML
+    const categories = ['decoracion', 'Llaveros', 'figuras', 'nueva-categoria-2'];
 
-    
-    window.scrollLeft = scrollLeft;
-    window.scrollRight = scrollRight;
-
-    document.getElementById('scroll-left-decoracion').addEventListener('click', function() {
-        scrollLeft('decoracion');
-    });
-    document.getElementById('scroll-right-decoracion').addEventListener('click', function() {
-        scrollRight('decoracion');
-    });
-    document.getElementById('scroll-left-Llaveros').addEventListener('click', function() {
-        scrollLeft('Llaveros');
-    });
-    document.getElementById('scroll-right-Llaveros').addEventListener('click', function() {
-        scrollRight('Llaveros');
-    });
-    document.getElementById('scroll-left-figuras').addEventListener('click', function() {
-        scrollLeft('Figuras');
-    });
-    document.getElementById('scroll-right-figuras').addEventListener('click', function() {
-        scrollRight('Figuras');
-    });
-    document.getElementById('scroll-left-nueva-categoria-2').addEventListener('click', function() {
-        scrollLeft('nueva-categoria-2');
-    });
-    document.getElementById('scroll-right-nueva-categoria-2').addEventListener('click', function() {
-        scrollRight('nueva-categoria-2');
+    categories.forEach(cat => {
+        const left = document.getElementById(`scroll-left-${cat}`);
+        const right = document.getElementById(`scroll-right-${cat}`);
+        if (left) left.addEventListener('click', () => scrollCarousel(cat, 'left'));
+        if (right) right.addEventListener('click', () => scrollCarousel(cat, 'right'));
     });
 });
